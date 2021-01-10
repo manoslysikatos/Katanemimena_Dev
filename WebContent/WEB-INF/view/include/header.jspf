@@ -83,21 +83,27 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="all-tasks.html">Όλα τα έργα</a>
-                        <a class="collapse-item" href="task-per-student.html">Έργα ανά υποψήφιο</a>
-                        <a class="collapse-item" href="task-per-professor.html">Έργα ανά καθηγητή</a>
-                        <a class="collapse-item" href="pending-tasks.html">Αιτήματα</a>
+                        <a class="collapse-item" href="${pageContext.request.contextPath}/tasks/list">Όλα τα έργα</a>
+                        <a class="collapse-item" href="">Έργα ανά υποψήφιο</a>
+                        <a class="collapse-item" href="">Έργα ανά καθηγητή</a>
+                        <a class="collapse-item" href="">Αιτήματα</a>
                     </div>
                 </div>
+            </li>
+            
+            
+
+           <hr class="sidebar-divider">
+
+            <!-- Nav Item - new task -->
+            <li class="nav-item active">
+                <a class="nav-link" href="${pageContext.request.contextPath}/staff/add-user">
+                    <i class="fas fa-user"></i>
+                    <span>Δημιουργία Νέου Χρήστη</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
             
         </ul>
         <!-- End of Sidebar -->

@@ -31,8 +31,11 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+		.cors()
+		.and()
+		.csrf()
+		.disable()
 		.authorizeRequests() // authorize
-		.antMatchers("/").permitAll()
 		.antMatchers("/resources/**").permitAll()// allow "/" to be seen without authentication
 		.anyRequest().authenticated() // all requests are authenticated
 		.and()

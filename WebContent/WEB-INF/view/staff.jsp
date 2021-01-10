@@ -30,7 +30,7 @@
 
                                         <tr>
                                                 <td>${tmp.id}</td>
-                                                <td>${tmp.firstName}&nbsp;${tmp.lastName}</td>
+                                                <td><a href="${pageContext.request.contextPath}/staff/info?id=${tmp.id}">${tmp.firstName}&nbsp;${tmp.lastName}</a></td>
                                                 <td>${tmp.email}</td>
                                                 <td>${tmp.phone}</td>
                                                

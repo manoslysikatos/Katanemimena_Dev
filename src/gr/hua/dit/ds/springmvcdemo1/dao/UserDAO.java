@@ -7,5 +7,6 @@ import gr.hua.dit.ds.springmvcdemo1.entity.User;
 public interface UserDAO {
 	public List<User> getUsers(String role);
 	public int getCount(String role);
+	public User getUserInfo(String id);
 }
 

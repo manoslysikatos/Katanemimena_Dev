@@ -1,5 +1,6 @@
 package gr.hua.dit.ds.springmvcdemo1.controller;
 
+import java.awt.PageAttributes.MediaType;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import gr.hua.dit.ds.springmvcdemo1.entity.User;
+import gr.hua.dit.ds.springmvcdemo1.dao.TaskDAO;
 import gr.hua.dit.ds.springmvcdemo1.dao.UserDAO;
 import gr.hua.dit.ds.springmvcdemo1.entity.Candidate;
 
@@ -24,6 +26,9 @@ public class HomeController {
 	@Autowired
     private UserDAO userDAO;
 	
+	@Autowired
+    private TaskDAO taskDAO;
+	
 	@GetMapping("/")
 	public String home(Model model) {
 
@@ -31,11 +36,13 @@ public class HomeController {
 		int admins = userDAO.getCount("ROLE_ADMIN");
 		int candidates = userDAO.getCount("ROLE_CAN");
 		int members = userDAO.getCount("ROLE_BOARD");
+		int tasksCount = taskDAO.getCount(1);
     	
     	model.addAttribute("supervisorsCount", supervisors);
     	model.addAttribute("staffCount", admins);
     	model.addAttribute("candidatesCount", candidates);
     	model.addAttribute("membersCount", members);
+    	model.addAttribute("tasksCount", tasksCount);
 		return "index";
 	}
 	
@@ -49,6 +56,8 @@ public class HomeController {
 	public String login() {
 		return "login";
 	}*/
+	
+	
 	
 	@RequestMapping("/studentform")
 	public String showForm() {
@@ -67,11 +76,11 @@ Session session = factory.getCurrentSession();
 
 try {
         // create the objects
-        User user = new User("Liza","Riga","it@hua.gr", "22222222", 1, 1, "ROLE_SUPER");
-        //Candidate candidate = new Candidate(5,12);
+        User user = new User("Nikos","Papadopoulos","it@hua.gr", "3456897", 1, 1, "ROLE_CAN");
+        Candidate candidate = new Candidate(5,12);
         
         // associate the objects
-        //user.setCandidate(candidate);
+        user.setCandidate(candidate);
         
         // start a transaction
         session.beginTransaction();

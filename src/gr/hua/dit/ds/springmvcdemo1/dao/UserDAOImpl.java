@@ -53,4 +53,22 @@ public class UserDAOImpl implements UserDAO{
 	        //return the results
 	        return result.size();
 	    }
+	    
+	    @Override
+	    @Transactional
+	    public User getUserInfo(String userID) { 
+	    	
+	    	// get current hibernate session
+	        Session currentSession = sessionFactory.getCurrentSession();
+
+	        // create a query
+	        Query<User> query = currentSession.createQuery("from User tmp where tmp.id='"+userID+"'", User.class);
+
+
+	        // execute the query and get the results list
+	        User result = query.getSingleResult();
+
+	        //return the results
+	        return result;
+	    }
 }
